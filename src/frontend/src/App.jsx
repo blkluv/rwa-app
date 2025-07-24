@@ -17,6 +17,7 @@ import AssetDetail from "../pages/AssetDetail";
 import CreateAsset from "../pages/CreateAsset";
 import Transactions from "../pages/Transactions";
 import Profile from "../pages/Profile";
+import AiChat from "../pages/AiChat";
 
 // Components
 import Navbar from "../components/Navbar";
@@ -24,6 +25,7 @@ import WalletConnect from "../components/WalletConnect";
 import Footer from "../components/Footer";
 import Loading from "../components/Loading";
 import ErrorModal from "../components/ErrorModal";
+import FloatingChatButton from "../components/FloatingChatButton";
 
 export default function App() {
   const [authClient, setAuthClient] = useState(null);
@@ -182,6 +184,20 @@ export default function App() {
                   )
                 }
               />
+              <Route
+                path="/aichat"
+                element={
+                  isAuthenticated ? (
+                    <AiChat
+                      backendActor={backendActor}
+                      principal={principal}
+                      onLogout={handleLogout}
+                    />
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                }
+              />
             </Routes>
           </main>
 
@@ -190,6 +206,8 @@ export default function App() {
               <WalletConnect onAuthenticated={handleAuthenticated} />
             </div>
           )}
+
+          {isAuthenticated && <FloatingChatButton />}
 
           <Footer />
 

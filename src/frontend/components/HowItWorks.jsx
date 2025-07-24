@@ -1,22 +1,36 @@
 import { motion } from "framer-motion";
+import { FiEdit3, FiDollarSign, FiCpu } from "react-icons/fi";
 
 export default function HowItWorks() {
   const steps = [
     {
-      icon: "📝",
+      icon: (
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-500/10">
+          <FiEdit3 className="text-indigo-400" size={32} />
+        </div>
+      ),
       title: "List Your Asset",
       description:
         "Tokenize your real-world asset by creating fractional shares.",
     },
     {
-      icon: "💸",
-      title: "Invest in Shares",
-      description: "Buy shares of assets you believe in with as little as $10.",
+      icon: (
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10">
+          <FiDollarSign className="text-green-400" size={32} />
+        </div>
+      ),
+      title: "Trade & Invest in Shares",
+      description: "Buy & sell shares on our secondary marketplace anytime.",
     },
     {
-      icon: "📈",
-      title: "Trade & Grow",
-      description: "Sell your shares on our secondary marketplace anytime.",
+      icon: (
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-500/10">
+          <FiCpu className="text-purple-400" size={32} />
+        </div>
+      ),
+      title: "AI Invest Agent",
+      description:
+        "Let our AI suggest the best assets and optimal times to trade. With permission, it can even execute trades for you.",
     },
   ];
 
@@ -25,8 +39,8 @@ export default function HowItWorks() {
       <div className="mb-12 flex flex-col justify-start text-left">
         <h2 className="mb-4 text-3xl font-bold text-white">How It Works</h2>
         <p className="max-w-2xl text-sm text-gray-400">
-          Our simple three-step process makes tokenizing and investing in
-          real-world assets accessible to everyone.
+          Our simple process makes tokenizing, investing, and growing your
+          real-world assets effortless and smart.
         </p>
       </div>
 
@@ -37,7 +51,7 @@ export default function HowItWorks() {
             className="rounded-xl border border-gray-800 p-8 transition-all duration-300 hover:border-indigo-400 hover:bg-gray-900/30"
             whileHover={{ y: -5 }}
           >
-            <div className="mb-4 text-4xl">{step.icon}</div>
+            <div className="mb-4">{step.icon}</div>
             <h3 className="mb-3 text-xl font-semibold text-white">
               {step.title}
             </h3>
