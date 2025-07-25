@@ -18,9 +18,9 @@ export default function AIAssistant() {
   const typingIntervalRef = useRef(null);
 
   // Auto-scroll to bottom when messages change
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  // useEffect(() => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  // }, [messages]);
 
   // Handle typing animation
   useEffect(() => {
@@ -71,7 +71,6 @@ export default function AIAssistant() {
 
     try {
       const API_KEY = import.meta.env.VITE_GEMINI_KEY;
-      alert(API_KEY);
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,
         {
@@ -151,7 +150,7 @@ export default function AIAssistant() {
   };
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-gray-950 text-white">
+    <div className="flex h-screen flex-col overflow-hidden bg-black text-white">
       {/* Fixed Header */}
       <header className="shrink-0 border-b border-gray-800 bg-gray-900/50 py-4">
         <div className="mx-auto flex max-w-4xl items-center gap-3 px-4">
