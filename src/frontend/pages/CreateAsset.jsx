@@ -92,6 +92,20 @@ export default function CreateAsset({ backendActor, principal }) {
             required
           />
         </div>
+        <div className="mb-6">
+          <label className="mb-2 flex items-center text-sm font-medium text-gray-300">
+            <FiPlus className="mr-2" />
+            Asset Type
+          </label>
+          <input
+            type="text"
+            name="title"
+            placeholder="Realestate, Art, Intellectual Property, Art & Collectibles, Precious Metals, Natural Assets
+            "
+            // onChange={handleChange}
+            className="w-full rounded-lg border border-[#2A2A3A] bg-[#0A0A0A] p-3 text-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30 focus:outline-none"
+          />
+        </div>
 
         <div className="mb-6">
           <label className="mb-2 flex items-center text-sm font-medium text-gray-300">
