@@ -98,13 +98,13 @@ export default function Hero() {
       >
         <div className="relative h-full max-h-[90vh] w-full">
           <div className="relative h-full w-full overflow-hidden rounded-xl bg-gray-900">
-            {/* <img
-              src="/assets/React-icon.webp"
+            <img
+              src="/assets/home.jpg"
               className="h-full w-full object-cover opacity-100"
               style={{ borderRadius: "12px" }}
               alt="Tokenized assets"
-            /> */}
-            <video muted loop autoPlay src="/assets/video.mp4"></video>
+            />
+            {/* <video muted loop autoPlay src="/assets/video.mp4"></video> */}
           </div>
         </div>
       </motion.div>
