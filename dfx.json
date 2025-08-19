@@ -1,37 +1,33 @@
 {
   "canisters": {
-    "llm": {
-      "type": "pull",
-      "id": "w36hm-eqaaa-aaaal-qr76a-cai"
-    },
     "backend": {
-      "dependencies": ["llm"],
+      "main": "backend/main.mo",
       "type": "motoko",
-      "main": "src/backend/main.mo"
+      "args": "--enhanced-orthogonal-persistence"
     },
     "frontend": {
       "dependencies": ["backend"],
-      "type": "assets",
-      "source": ["src/frontend/dist/"]
+      "frontend": {
+        "entrypoint": "frontend/index.html"
+      },
+      "source": ["frontend/dist"],
+      "type": "assets"
     },
     "internet_identity": {
       "type": "custom",
-      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
-      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz",
+      "candid": "canisters/internet_identity/internet_identity.did",
+      "wasm": "canisters/internet_identity/internet_identity_dev.wasm.gz",
       "remote": {
         "id": {
-          "ic": "br5f7-7uaaa-aaaaa-qaaca-cai"
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
         }
       }
     }
   },
+  "output_env_file": ".env",
   "defaults": {
     "build": {
-      "args": "",
       "packtool": "mops sources"
     }
-  },
-  "output_env_file": ".env",
-  "version": 1,
-  "dfx": "0.25.0"
+  }
 }
