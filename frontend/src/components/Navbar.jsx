@@ -49,6 +49,7 @@ export default function Navbar({
   const links = [
     { name: "Dashboard", id: "/dashboard" },
     { name: "Marketplace Page", id: "/marketplace" },
+    { name: "AI Chat", id: "/aichat" },
     { name: "My Assets", id: "/profile" },
   ];
 
@@ -170,6 +171,15 @@ export default function Navbar({
                         className="block w-full px-4 py-2 text-left text-sm text-gray-300 transition-colors hover:bg-gray-950 hover:text-white"
                       >
                         My Assets
+                      </button>
+                      <button
+                        onClick={() => {
+                          navigate("/aichat");
+                          setDropdownOpen(false);
+                        }}
+                        className="block w-full px-4 py-2 text-left text-sm text-gray-300 transition-colors hover:bg-gray-950 hover:text-white"
+                      >
+                        AI Chat
                       </button>
                       <button
                         onClick={logout}

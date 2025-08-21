@@ -20,6 +20,9 @@ import Transactions from "../pages/Transactions";
 import Profile from "../pages/Profile";
 import AiChat from "../pages/AiChat";
 
+// Mobile app
+import Connectwallet from "../pages/mobile/Connectwallet";
+
 // Components
 import Navbar from "../components/Navbar";
 import WalletConnect from "../components/WalletConnect";
@@ -199,24 +202,24 @@ export default function App() {
                   )
                 }
               />
+              <Route path="/connectwallet" element={<Connectwallet />} />
             </Routes>
           </main>
 
-          {!isAuthenticated && (
+          {/* {!isAuthenticated && (
             <div className="fixed right-4 bottom-4">
               <WalletConnect onAuthenticated={handleAuthenticated} />
             </div>
-          )}
-
+          )} */}
           {isAuthenticated && <FloatingChatButton />}
-
-          <Footer />
-
           {error && (
             <ErrorModal message={error} onClose={() => setError(null)} />
           )}
         </div>
       </Router>
+      {/* <Router>
+        <Footer />
+      </Router> */}
     </div>
   );
 }
