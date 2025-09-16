@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { AuthClient } from '@dfinity/auth-client';
-import { createActor, canisterId } from 'declarations/backend';
+import React, { useEffect, useState } from "react";
+import { AuthClient } from "@dfinity/auth-client";
+import { createActor, canisterId } from "declarations/backend";
 
 const network = process.env.DFX_NETWORK;
 const identityProvider =
-  network === 'ic'
-    ? 'https://identity.ic0.app' // Mainnet
-    : 'http://rdmx6-jaaaa-aaaaa-aaadq-cai.localhost:4943'; // Local
+  network === "ic"
+    ? // ? 'https://identity.ic0.app' // Mainnet
+      "https://id.ai" // Mainnet
+    : "http://rdmx6-jaaaa-aaaaa-aaadq-cai.localhost:4943"; // Local
 
-const InternetIdentity = ({ setActor, isAuthenticated, setIsAuthenticated }) => {
+const InternetIdentity = ({
+  setActor,
+  isAuthenticated,
+  setIsAuthenticated,
+}) => {
   const [authClient, setAuthClient] = useState();
   const [principal, setPrincipal] = useState();
   useEffect(() => {
@@ -20,8 +25,8 @@ const InternetIdentity = ({ setActor, isAuthenticated, setIsAuthenticated }) => 
     const identity = authClient.getIdentity();
     const actor = createActor(canisterId, {
       agentOptions: {
-        identity
-      }
+        identity,
+      },
     });
     const isAuthenticated = await authClient.isAuthenticated();
 
@@ -34,7 +39,7 @@ const InternetIdentity = ({ setActor, isAuthenticated, setIsAuthenticated }) => 
   async function login() {
     await authClient.login({
       identityProvider,
-      onSuccess: updateActor
+      onSuccess: updateActor,
     });
   }
 
