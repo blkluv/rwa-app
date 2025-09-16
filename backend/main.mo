@@ -13,7 +13,8 @@ import Float "mo:base/Float";
 import Text "mo:base/Text";
 import Hash "mo:base/Hash";
 
-shared ({ caller = initializer }) actor class RWA() = this {
+shared ({ caller = initializer }) persistent actor class RWA() = this {
+
     // Type definitions
     public type AssetId = Nat;
     public type ShareId = Nat;
@@ -89,9 +90,9 @@ shared ({ caller = initializer }) actor class RWA() = this {
     };
 
     // Initialize HashMaps
-    private var assets = HashMap.HashMap<AssetId, Asset>(0, Nat.equal, natHash);
-    private var shares = HashMap.HashMap<ShareId, Share>(0, Nat.equal, natHash);
-    private var transactions = HashMap.HashMap<Nat, Transaction>(0, Nat.equal, natHash);
+    flexible var assets = HashMap.HashMap<AssetId, Asset>(0, Nat.equal, natHash);
+flexible var shares = HashMap.HashMap<ShareId, Share>(0, Nat.equal, natHash);
+flexible var transactions = HashMap.HashMap<Nat, Transaction>(0, Nat.equal, natHash);
 
     // System upgrade functions - FIXED VERSION
     system func preupgrade() {
