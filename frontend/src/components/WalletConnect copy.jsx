@@ -27,7 +27,8 @@ export default function WalletConnect({
       const authClient = await AuthClient.create();
       const identityProvider =
         process.env.DFX_NETWORK === "ic" || import.meta.env.DFX_NETWORK === "ic"
-          ? "https://identity.ic0.app"
+          ? // ? "https://identity.ic0.app"
+            "https://id.ai"
           : `http://${iiCanisterId}.localhost:4943`;
 
       await authClient.login({

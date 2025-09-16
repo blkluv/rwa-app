@@ -355,7 +355,8 @@ export default function WalletConnect({
         const network = process.env.DFX_NETWORK || import.meta.env.DFX_NETWORK;
         identityProvider =
           network === "ic"
-            ? "https://identity.ic0.app" // Mainnet
+            ? // ? "https://identity.ic0.app" // Mainnet
+              "https://id.ai" // Mainnet
             : `http://${iiCanisterId}.localhost:4943`; // Local
       }
 
